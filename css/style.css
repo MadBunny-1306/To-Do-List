@@ -1,0 +1,38 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  background-color: bisque;
+  width: 800px;
+  height: 500px;
+  /* justify-content: center; */
+  align-items: center;
+  font-size: 2rem;
+  padding: 2rem;
+}
+
+.input {
+  width: 300px;
+  height: 40px;
+}
+
+.btn__add-task {
+  width: 60px;
+  height: 40px;
+  background-color: antiquewhite;
+  border: 1px solid rgb(103, 96, 145);
+  border-radius: 2px;
+}
+
+.btn__add-task:hover {
+  cursor: pointer;
+  background-color: rgb(248, 241, 233);
+  transition: 0.4s ease-in;
+}
+
+.tasks-container {
+  background-color: rgb(224, 200, 247);
+  width: 80%;
+  height: 100px;
+  margin-top: 3rem;
+}
