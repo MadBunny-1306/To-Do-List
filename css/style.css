@@ -33,6 +33,13 @@
 .tasks-container {
   background-color: rgb(224, 200, 247);
   width: 80%;
-  height: 100px;
+  height: 70%;
   margin-top: 3rem;
+}
+
+.task-name {
+  height: 30px;
+  width: 50%;
+  background-color: aliceblue;
+  display: inline-block;
 }
