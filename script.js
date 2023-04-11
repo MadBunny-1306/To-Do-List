@@ -11,6 +11,7 @@ const btnDoneTask = document.querySelector(".btn__finish-task");
 const btnDeleteTask = document.querySelector(".btn__delete-task");
 
 btnAddTask.addEventListener("click", function () {
+  tasks.prepend(task);
   const text = input.value;
   console.log(text);
   taskName.innerHTML = text;
@@ -18,6 +19,14 @@ btnAddTask.addEventListener("click", function () {
 });
 
 btnEditTask.addEventListener("click", function () {
-  // input.value = ;
+  input.value = taskName.innerHTML;
   taskName.innerHTML = "";
+});
+
+btnDoneTask.addEventListener("click", function () {
+  taskName.classList.toggle("task-done");
+});
+
+btnDeleteTask.addEventListener("click", function () {
+  task.remove();
 });

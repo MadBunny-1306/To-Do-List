@@ -43,3 +43,9 @@
   background-color: aliceblue;
   display: inline-block;
 }
+
+.task-done {
+  text-decoration: line-through;
+  color: rgb(70, 70, 70);
+  font-style: italic;
+}
