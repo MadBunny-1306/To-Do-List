@@ -10,12 +10,21 @@ const btnEditTask = document.querySelector(".btn__edit-task");
 const btnDoneTask = document.querySelector(".btn__finish-task");
 const btnDeleteTask = document.querySelector(".btn__delete-task");
 
-btnAddTask.addEventListener("click", function () {
-  tasks.prepend(task);
+const html = `<div class="task">
+<p class="task-name"></p>
+<button class="btn__edit-task">edit</button>
+<button class="btn__finish-task">done</button>
+<button class="btn__delete-task">delete</button>
+</div>`;
+
+btnAddTask.addEventListener("click", function (e) {
+  e.preventDefault();
+
   const text = input.value;
   console.log(text);
   taskName.innerHTML = text;
   input.value = "";
+  tasks.insertAdjacentHTML("afterbegin", html);
 });
 
 btnEditTask.addEventListener("click", function () {
