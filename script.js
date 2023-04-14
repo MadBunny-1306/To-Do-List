@@ -4,7 +4,44 @@ const input = document.querySelector(".input");
 const btnAddTask = document.querySelector(".btn__add-task");
 
 const tasks = document.querySelector(".tasks-container");
-// const task = document.querySelector(".task");
+
+// const addEventListeners = function () {
+//   const editButtons = document.querySelectorAll(".btn__edit-task");
+//   const doneButtons = document.querySelectorAll(".btn__finish-task");
+//   const deleteButtons = document.querySelectorAll(".btn__delete-task");
+
+//   editButtons.forEach(function (btn) {
+//     btn.addEventListener("click", function (e) {
+//       const taskElement = e.target.closest(".task");
+//       const taskName = taskElement.querySelector(".task-name");
+
+//       if (taskName.textContent !== "") {
+//         input.value = taskName.textContent;
+//         taskName.textContent = "";
+//       } else {
+//         taskName.textContent = input.value;
+//         input.value = "";
+//       }
+//     });
+//   });
+
+//   doneButtons.forEach(function (btn) {
+//     btn.addEventListener("click", function (e) {
+//       const taskElement = e.target.closest(".task");
+//       const taskName = taskElement.querySelector(".task-name");
+//       taskName.classList.toggle("task-done");
+//     });
+//   });
+
+//   deleteButtons.forEach(function (btn) {
+//     btn.addEventListener("click", function (e) {
+//       const taskElement = e.target.closest(".task");
+//       taskElement.remove();
+//     });
+//   });
+// };
+
+// addEventListeners();
 
 btnAddTask.addEventListener("click", function (e) {
   e.preventDefault();
@@ -19,6 +56,7 @@ btnAddTask.addEventListener("click", function (e) {
     <button class="btn__delete-task">delete</button>`;
     tasks.appendChild(newTask);
     input.value = "";
+    addEventListeners();
   }
 });
 
