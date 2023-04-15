@@ -50,7 +50,7 @@ btnAddTask.addEventListener("click", function (e) {
   if (text !== "") {
     const newTask = document.createElement("div");
     newTask.className = "task";
-    newTask.innerHTML = `<p class="task-name">${text}</p>
+    newTask.innerHTML = `<p class="task-name" contenteditable="true">${text}</p>
     <button class="btn__edit-task">edit</button>
     <button class="btn__finish-task">done</button>
     <button class="btn__delete-task">delete</button>`;
@@ -62,6 +62,11 @@ btnAddTask.addEventListener("click", function (e) {
 
 tasks.addEventListener("click", function (e) {
   const task = e.target.closest(".task");
+
+  // const taskName = e.target.closest(".task-name");
+  // const btnEditTask = e.target.closest(".btn__edit-task");
+  // const btnDoneTask = e.target.closest(".btn__finish-task");
+  // const btnDeleteTask = e.target.closest(".btn__delete-task");
 
   const taskName = document.querySelector(".task-name");
   const btnEditTask = document.querySelector(".btn__edit-task");
@@ -81,4 +86,8 @@ tasks.addEventListener("click", function (e) {
   } else if (e.target === btnDeleteTask) {
     tasks.removeChild(task);
   }
+
+  taskName.addEventListener("keydown", function (e) {
+    e.preventDefault();
+  });
 });

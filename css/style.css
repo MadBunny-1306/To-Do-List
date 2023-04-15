@@ -38,12 +38,17 @@
 }
 
 .task-name {
-  height: 30px;
+  font-size: 1.5rem;
+  padding: 0.5rem;
+  /* height: 30px; */
   width: 50%;
   background-color: aliceblue;
   display: inline-block;
 }
 
+.task {
+  margin-bottom: 0.5rem;
+}
 .task-done {
   text-decoration: line-through;
   color: rgb(70, 70, 70);
