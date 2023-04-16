@@ -54,8 +54,8 @@ btnAddTask.addEventListener("click", function (e) {
     const newTask = document.createElement("div");
     newTask.className = "task";
     newTask.innerHTML = `<p class="task-name" contenteditable="true">${text}</p>
-    <button class="btn--finish-task">done</button>
-    <button class="btn--delete-task">delete</button>`;
+    <button class="btn btn--finish-task"><i class="fa-sharp fa-solid fa-check"></i></button>
+    <button class="btn btn--delete-task"><i class="fa-solid fa-xmark"></i></button>`;
     tasks.appendChild(newTask);
     input.value = "";
     addEventListeners();
