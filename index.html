@@ -7,7 +7,12 @@
     <title>To Do list</title>
     <link rel="stylesheet" href="css/reset.css" />
     <link rel="stylesheet" href="css/style.css" />
-
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
     <script defer src="script.js"></script>
     <script
       defer
@@ -19,8 +24,10 @@
     <div class="container">
       <div class="header">
         <div class="title"><p>Add a task</p></div>
-        <input type="text" class="input" />
-        <button class="btn--add-task">Add</button>
+        <div class="input-line">
+          <input type="text" class="input" />
+          <button class="btn--add-task">Add</button>
+        </div>
       </div>
       <div class="tasks-container"></div>
     </div>
