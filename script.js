@@ -5,7 +5,8 @@ const input = document.querySelector(".input");
 const btnAddTask = document.querySelector(".btn--add-task");
 const tasks = document.querySelector(".tasks-container");
 
-//// Handlers
+//// Functions
+
 const handleDoneButtonClick = function (e) {
   const taskElement = e.target.closest(".task");
   const taskName = taskElement.querySelector(".task-name");
@@ -24,7 +25,6 @@ const handleTaskNameKeydown = function (e) {
   }
 };
 
-///// Events
 const addEventListeners = function () {
   const doneButtons = document.querySelectorAll(".btn--finish-task");
   const deleteButtons = document.querySelectorAll(".btn--delete-task");
@@ -46,9 +46,7 @@ const addEventListeners = function () {
   });
 };
 
-btnAddTask.addEventListener("click", function (e) {
-  e.preventDefault();
-
+const addTask = function () {
   const text = input.value;
   if (text !== "") {
     const newTask = document.createElement("div");
@@ -59,5 +57,18 @@ btnAddTask.addEventListener("click", function (e) {
     tasks.appendChild(newTask);
     input.value = "";
     addEventListeners();
+  }
+};
+
+///// Events
+
+btnAddTask.addEventListener("click", function (e) {
+  e.preventDefault();
+  addTask();
+});
+
+input.addEventListener("keydown", function (e) {
+  if (e.key === "Enter") {
+    addTask();
   }
 });
