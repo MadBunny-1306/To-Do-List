@@ -4,6 +4,7 @@
 const input = document.querySelector(".input");
 const btnAddTask = document.querySelector(".btn--add-task");
 const tasks = document.querySelector(".tasks-container");
+const popupWindow = document.querySelector(".popup");
 
 //// Functions
 
@@ -13,9 +14,42 @@ const handleDoneButtonClick = function (e) {
   taskName.classList.toggle("task-done");
 };
 
+// const showPopupWindow = function () {
+//   popupWindow.classList.remove("hidden");
+
+//   // const btnNo = document.querySelector(".btn-no");
+//   // const btnYes = document.querySelector(".btn-yes");
+
+//   // btnYes.addEventListener("click", function (e) {
+//   //   e.preventDefault();
+//   //   popupWindow.classList.add("hidden");
+//   //   taskElement.remove();
+//   // });
+
+//   // btnNo.addEventListener("click", function (e) {
+//   //   e.preventDefault();
+//   //   popupWindow.classList.add("hidden");
+//   // });
+// };
+
 const handleDeleteButtonClick = function (e) {
   const taskElement = e.target.closest(".task");
-  taskElement.remove();
+
+  popupWindow.classList.remove("hidden");
+
+  const btnNo = document.querySelector(".btn-no");
+  const btnYes = document.querySelector(".btn-yes");
+
+  btnYes.addEventListener("click", function (e) {
+    e.preventDefault();
+    popupWindow.classList.add("hidden");
+    taskElement.remove();
+  });
+
+  btnNo.addEventListener("click", function (e) {
+    e.preventDefault();
+    popupWindow.classList.add("hidden");
+  });
 };
 
 const handleTaskNameKeydown = function (e) {
