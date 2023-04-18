@@ -4,7 +4,6 @@
 const input = document.querySelector(".input");
 const btnAddTask = document.querySelector(".btn--add-task");
 const tasks = document.querySelector(".tasks-container");
-const popupWindow = document.querySelector(".popup");
 
 //// Functions
 
@@ -14,41 +13,27 @@ const handleDoneButtonClick = function (e) {
   taskName.classList.toggle("task-done");
 };
 
-// const showPopupWindow = function () {
-//   popupWindow.classList.remove("hidden");
-
-//   // const btnNo = document.querySelector(".btn-no");
-//   // const btnYes = document.querySelector(".btn-yes");
-
-//   // btnYes.addEventListener("click", function (e) {
-//   //   e.preventDefault();
-//   //   popupWindow.classList.add("hidden");
-//   //   taskElement.remove();
-//   // });
-
-//   // btnNo.addEventListener("click", function (e) {
-//   //   e.preventDefault();
-//   //   popupWindow.classList.add("hidden");
-//   // });
-// };
-
 const handleDeleteButtonClick = function (e) {
   const taskElement = e.target.closest(".task");
-
+  const popupWindow = taskElement.querySelector(".popup");
   popupWindow.classList.remove("hidden");
 
-  const btnNo = document.querySelector(".btn-no");
-  const btnYes = document.querySelector(".btn-yes");
+  const btnsNo = document.querySelectorAll(".btn-no");
+  const btnsYes = document.querySelectorAll(".btn-yes");
 
-  btnYes.addEventListener("click", function (e) {
-    e.preventDefault();
-    popupWindow.classList.add("hidden");
-    taskElement.remove();
+  btnsYes.forEach(function (btn) {
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      popupWindow.classList.add("hidden");
+      taskElement.remove();
+    });
   });
 
-  btnNo.addEventListener("click", function (e) {
-    e.preventDefault();
-    popupWindow.classList.add("hidden");
+  btnsNo.forEach(function (btn) {
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      popupWindow.classList.add("hidden");
+    });
   });
 };
 
@@ -87,7 +72,13 @@ const addTask = function () {
     newTask.className = "task";
     newTask.innerHTML = `<p class="task-name" contenteditable="true" spellcheck="false">${text}</p>
     <button class="btn btn--finish-task"><i class="fa-sharp fa-solid fa-check"></i></button>
-    <button class="btn btn--delete-task"><i class="fa-solid fa-xmark"></i></button>`;
+    <button class="btn btn--delete-task"><i class="fa-solid fa-xmark"></i></button>  <div class="popup hidden">
+    <p>Are you sure you want to delete task?</p>
+    <div class="btns-popup">
+      <button class="btn btn-no">No</button>
+      <button class="btn btn-yes">Yes</button>
+    </div>
+  </div>`;
     tasks.appendChild(newTask);
     input.value = "";
     addEventListeners();
