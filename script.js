@@ -3,10 +3,24 @@
 ///// Elements
 const input = document.querySelector(".input");
 const btnAddTask = document.querySelector(".btn--add-task");
-const tasks = document.querySelector(".tasks-container");
+const tasksList = document.querySelector(".tasks-list");
+const taskList = document.querySelector(".task-list");
+const popup = document.querySelector(".popup");
+const btnNo = document.querySelector(".btn-no");
+const btnYes = document.querySelector(".btn-zes");
 
 //// Functions
 
+let tasks = [];
+
+const renderTask = function () {
+  taskList.innerHTML = "";
+  tasks.forEach((task, index) => {
+    const li = document.createElement("li");
+  });
+};
+
+/** 
 const handleDoneButtonClick = function (e) {
   const taskElement = e.target.closest(".task");
   const taskName = taskElement.querySelector(".task-name");
@@ -97,3 +111,4 @@ input.addEventListener("keydown", function (e) {
     addTask();
   }
 });
+*/
