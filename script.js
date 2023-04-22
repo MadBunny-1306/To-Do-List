@@ -37,11 +37,11 @@ const addTask = function () {
   }
 };
 
-const finishTask = function (e) {
-  // const index = e.target.dataset.index;
-  const taskName = e.target.parentNode.previousSibling.textContent;
-  taskName.classList.add("task-done");
-};
+// const finishTask = function (e) {
+//   // const index = e.target.dataset.index;
+//   const taskName = e.target.parentNode.previousSibling.textContent;
+//   taskName.classList.add("task-done");
+// };
 
 const deleteTask = function (index) {
   const btnYes = popup.querySelector(".btn-yes");
@@ -68,6 +68,12 @@ taskList.addEventListener("click", function (e) {
   if (e.target.classList.contains("btn--delete-task")) {
     const index = e.target.dataset.index;
     deleteTask(index);
+  }
+});
+
+input.addEventListener("keydown", function (e) {
+  if (e.key === "Enter") {
+    addTask();
   }
 });
 /** 
