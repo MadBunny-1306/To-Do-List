@@ -21,6 +21,13 @@ const renderTasks = function () {
     <button class="btn btn--finish-task" data-index="${index}"><i class="fa-sharp fa-solid fa-check"></i></button>
     <button class="btn btn--delete-task" data-index="${index}"><i class="fa-solid fa-xmark"></i></button>
   </div>`;
+
+    const btnsDelete = document.querySelectorAll(".btn--delete-task");
+    btnsDelete.forEach(function (btn) {
+      btn.removeEventListener("click", deleteTask);
+      btn.addEventListener("click", deleteTask);
+    });
+
     taskList.appendChild(li);
   });
 };
@@ -32,6 +39,7 @@ const addTask = function () {
     const dateString = `${date.toLocaleDateString()} ${date.toLocaleTimeString()}`;
     const newTask = { task, date: dateString };
     tasks.push(newTask);
+
     renderTasks();
     input.value = "";
   }
@@ -42,6 +50,12 @@ const addTask = function () {
 //   const taskName = e.target.parentNode.previousSibling.textContent;
 //   taskName.classList.add("task-done");
 // };
+
+// const btnsDelete = document.querySelectorAll(".btn--delete-task");
+// btnsDelete.forEach(function (btn) {
+//   btn.removeEventListener("click", deleteTask);
+//   btn.addEventListener("click", deleteTask);
+// });
 
 const deleteTask = function (index) {
   const btnYes = popup.querySelector(".btn-yes");
@@ -73,6 +87,7 @@ taskList.addEventListener("click", function (e) {
 
 input.addEventListener("keydown", function (e) {
   if (e.key === "Enter") {
+    e.preventDefault();
     addTask();
   }
 });
