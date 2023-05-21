@@ -5,8 +5,6 @@ const input = document.querySelector(".input");
 const btnAddTask = document.querySelector(".btn--add-task");
 const taskList = document.querySelector(".task-list");
 const popup = document.querySelector(".popup");
-// const btnNo = document.querySelector(".btn-no");
-// const btnYes = document.querySelector(".btn-yes");
 
 //// Functions
 
@@ -28,6 +26,12 @@ const renderTasks = function () {
       btn.addEventListener("click", deleteTask);
     });
 
+    const btnsFinish = document.querySelectorAll(".btn--finish-task");
+    btnsFinish.forEach(function (btn) {
+      btn.removeEventListener("click", finishTask);
+      btn.addEventListener("click", finishTask);
+    });
+
     taskList.appendChild(li);
   });
 };
@@ -46,16 +50,18 @@ const addTask = function () {
 };
 
 // const finishTask = function (e) {
-//   // const index = e.target.dataset.index;
-//   const taskName = e.target.parentNode.previousSibling.textContent;
+//   const index = e.target.dataset.index;
+//   const taskName = e.target.parentNode.previousSibling;
+
+//   if (taskName.classList.contains("finished")) {
+//     taskName.classList.remove("finished");
+//     tasks[index].finished = false;
+//   } else {
+//     taskName.classList.add("finished");
+//     tasks[index].finished = true;
+//   }
 //   taskName.classList.add("task-done");
 // };
-
-// const btnsDelete = document.querySelectorAll(".btn--delete-task");
-// btnsDelete.forEach(function (btn) {
-//   btn.removeEventListener("click", deleteTask);
-//   btn.addEventListener("click", deleteTask);
-// });
 
 const deleteTask = function (index) {
   const btnYes = popup.querySelector(".btn-yes");
@@ -72,18 +78,26 @@ const deleteTask = function (index) {
   });
 };
 
+// const handleDoneButtonClick = function (e) {
+//   // const taskElement = e.target.closest(".task");
+//   // const taskName = taskElement.querySelector(".task-name");
+//   const taskName = e.target.closest(".task-name");
+//   taskName.classList.toggle("task-done");
+
+// };
+
 btnAddTask.addEventListener("click", addTask);
 
-taskList.addEventListener("click", function (e) {
-  if (e.target.classList.contains("btn--finish-task")) {
-    const index = e.target.dataset.index;
-    finishTask(index);
-  }
-  if (e.target.classList.contains("btn--delete-task")) {
-    const index = e.target.dataset.index;
-    deleteTask(index);
-  }
-});
+// taskList.addEventListener("click", function (e) {
+//   if (e.target.classList.contains("btn--finish-task")) {
+//     const index = e.target.dataset.index;
+//     finishTask(index);
+//   }
+//   if (e.target.classList.contains("btn--delete-task")) {
+//     const index = e.target.dataset.index;
+//     deleteTask(index);
+//   }
+// });
 
 input.addEventListener("keydown", function (e) {
   if (e.key === "Enter") {
@@ -91,12 +105,9 @@ input.addEventListener("keydown", function (e) {
     addTask();
   }
 });
+
 /** 
-const handleDoneButtonClick = function (e) {
-  const taskElement = e.target.closest(".task");
-  const taskName = taskElement.querySelector(".task-name");
-  taskName.classList.toggle("task-done");
-};
+
 
 const handleDeleteButtonClick = function (e) {
   const taskElement = e.target.closest(".task");
@@ -170,16 +181,4 @@ const addTask = function () {
   }
 };
 
-///// Events
-
-btnAddTask.addEventListener("click", function (e) {
-  e.preventDefault();
-  addTask();
-});
-
-input.addEventListener("keydown", function (e) {
-  if (e.key === "Enter") {
-    addTask();
-  }
-});
 */

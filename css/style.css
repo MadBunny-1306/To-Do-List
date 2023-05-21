@@ -87,7 +87,7 @@ body {
   outline: none;
 }
 
-.task-done {
+.finished {
   text-decoration: line-through #65554d8e;
   color: #65554d8e;
   font-style: italic;
