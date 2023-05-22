@@ -9,7 +9,7 @@ const popup = document.querySelector(".popup");
 //// Functions
 
 let tasks = [];
-
+let checks;
 const renderTasks = function () {
   taskList.innerHTML = "";
   tasks.forEach((task, index) => {
@@ -26,14 +26,23 @@ const renderTasks = function () {
       btn.addEventListener("click", deleteTask);
     });
 
-    const btnsFinish = document.querySelectorAll(".btn--finish-task");
-    btnsFinish.forEach(function (btn) {
-      btn.removeEventListener("click", finishTask);
-      btn.addEventListener("click", finishTask);
-    });
+    // const btnsFinish = document.querySelectorAll(".btn--finish-task");
+    // btnsFinish.forEach(function (btn) {
+    //   btn.removeEventListener("click", finishTask);
+    //   btn.addEventListener("click", finishTask);
+    // });
 
     taskList.appendChild(li);
   });
+
+  checks = document.querySelectorAll(".btn--finish-task");
+  checks.forEach((b) => {
+    b.addEventListener("click", () => {
+      // console.log("Fuck yes!");
+      finishTask();
+    });
+  });
+  console.log(checks);
 };
 
 const addTask = function () {
@@ -48,20 +57,20 @@ const addTask = function () {
     input.value = "";
   }
 };
+/*
+const finishTask = function (e) {
+  const index = e.target.dataset.index;
+  const taskName = e.target.parentNode.previousSibling;
 
-// const finishTask = function (e) {
-//   const index = e.target.dataset.index;
-//   const taskName = e.target.parentNode.previousSibling;
-
-//   if (taskName.classList.contains("finished")) {
-//     taskName.classList.remove("finished");
-//     tasks[index].finished = false;
-//   } else {
-//     taskName.classList.add("finished");
-//     tasks[index].finished = true;
-//   }
-//   taskName.classList.add("task-done");
-// };
+  if (taskName.classList.contains("finished")) {
+    taskName.classList.remove("finished");
+    tasks[index].finished = false;
+  } else {
+    taskName.classList.add("finished");
+    tasks[index].finished = true;
+  }
+  taskName.classList.add("task-done");
+};
 
 const deleteTask = function (index) {
   const btnYes = popup.querySelector(".btn-yes");
@@ -106,7 +115,7 @@ input.addEventListener("keydown", function (e) {
   }
 });
 
-/** 
+
 
 
 const handleDeleteButtonClick = function (e) {
