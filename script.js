@@ -37,9 +37,12 @@ const renderTasks = function () {
 
   checks = document.querySelectorAll(".btn--finish-task");
   checks.forEach((b) => {
-    b.addEventListener("click", () => {
-      // console.log("Fuck yes!");
-      finishTask();
+    b.addEventListener("click", function (e) {
+      // console.log("Print");
+      // finishTask();
+      const taskName = e.target.closest(".task-name");
+      console.log(taskName);
+      // taskName.style.color = red;
     });
   });
   console.log(checks);
@@ -95,7 +98,7 @@ const deleteTask = function (index) {
 
 // };
 
-btnAddTask.addEventListener("click", addTask);
+
 
 // taskList.addEventListener("click", function (e) {
 //   if (e.target.classList.contains("btn--finish-task")) {
@@ -108,12 +111,6 @@ btnAddTask.addEventListener("click", addTask);
 //   }
 // });
 
-input.addEventListener("keydown", function (e) {
-  if (e.key === "Enter") {
-    e.preventDefault();
-    addTask();
-  }
-});
 
 
 
@@ -191,3 +188,11 @@ const addTask = function () {
 };
 
 */
+btnAddTask.addEventListener("click", addTask);
+
+input.addEventListener("keydown", function (e) {
+  if (e.key === "Enter") {
+    e.preventDefault();
+    addTask();
+  }
+});
