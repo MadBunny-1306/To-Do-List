@@ -27,16 +27,16 @@ const renderTasks = function (task, index) {
     taskList.insertAdjacentHTML("afterbegin", html);
     // const taskName = document.querySelector(".task-name");
   });
-  // checks = document.querySelectorAll(".btn--finish-task");
-  // checks.forEach((b) => {
-  //   b.addEventListener("click", function (e) {
-  //     // console.log("Print");
-  //     // finishTask();
-  //     const taskName = e.target.closest(".task-name");
-  //     console.log(taskName);
-  //     // taskName.style.color = red;
-  //   });
-  // });
+  checks = document.querySelectorAll(".btn--finish-task");
+  checks.forEach((b) => {
+    b.addEventListener("click", function (e) {
+      console.log("Print");
+      // finishTask();
+      const taskName = e.target.closest(".task-name");
+      console.log(taskName);
+      // taskName.style.color = red;
+    });
+  });
   // console.log(checks);
 };
 const addTask = function () {
