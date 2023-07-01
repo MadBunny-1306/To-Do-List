@@ -1,7 +1,7 @@
 body {
   height: 100vh;
   font-family: "Caveat", cursive;
-  background-color: #f4f0e5;
+  background-color: #f4f0e59c;
 }
 
 .container {
@@ -19,7 +19,7 @@ body {
 
 .title {
   padding: 0.5rem;
-  color: #65554d;
+  color: #272727;
 }
 
 .input-line {
@@ -31,14 +31,16 @@ body {
 .input {
   width: 55%;
   height: 3rem;
-  margin-right: 1%;
+  margin-right: 2%;
   padding: 0.3rem;
   font-size: 2rem;
   font-family: "Caveat", cursive;
   border: none;
-  background-color: #f0dfd3;
-  color: #65554d;
+  background-color: #fcf9f8;
+  color: #272727;
   outline: none;
+  box-shadow: 0 0 10px #27272734;
+  border-radius: 4px;
 }
 
 .btn--add-task {
@@ -65,16 +67,22 @@ body {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  background-color: #d7cfc4;
+  background-color: #f4f0e59c;
   box-shadow: 0px 0px 15px 5px rgba(163, 163, 163, 0.144);
 }
 
 .task {
   width: 45%;
   margin-top: 0.6rem;
+  margin-bottom: 0.6rem;
   margin-right: 1.2rem;
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  /* border: 1px solid black; */
+}
+
+.task-line {
+  display: flex;
 }
 
 .task-name {
@@ -83,8 +91,21 @@ body {
   padding: 0.7rem 1.2rem;
   margin-right: 1%;
   color: #65554d;
-  background-color: #f4f0e5;
+  background-color: #f8f8f6;
   outline: none;
+}
+
+.task-done {
+  color: #272727;
+  width: 30px;
+  height: 30px;
+  align-self: center;
+}
+
+.date-span {
+  font-size: 1.3rem;
+  color: #272727bb;
+  margin-left: 2rem;
 }
 
 .finished {
