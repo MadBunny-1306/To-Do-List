@@ -1,4 +1,10 @@
 "use strict";
+/**
+ * change date format
+ * style checkbox, maybe put it infront task-name
+ * dragable task?
+ * color theme?
+ */
 
 ///// Elements
 const input = document.querySelector(".input");
@@ -20,7 +26,7 @@ const renderTasks = function (task, index) {
     const html = `<div class="task"><div class="task-line">
     <p class="task-name" contenteditable="true" spellcheck="false">${task.task}</p>
     <input type="checkbox" class="task-done"></div>
-    <span class="date-span">added on ${task.date}</span>
+    <span class="date-span">${task.date}</span>
   </div>`;
     //   const btnsDelete = document.querySelectorAll(".btn--delete-task");
     //   btnsDelete.forEach(function (btn) {
