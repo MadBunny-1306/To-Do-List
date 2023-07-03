@@ -4,6 +4,14 @@
  * style checkbox, maybe put it infront task-name
  * dragable task?
  * color theme?
+ * 
+
+// buttons for html
+//  <button class="btn btn--finish-task" data-index="${index}"><i class="fa-sharp fa-solid fa-check"></i></button>
+//<button class="btn btn--delete-task" data-index="${index}"><i class="fa-solid fa-xmark"></i></button>
+
+
+
  */
 
 ///// Elements
@@ -13,10 +21,6 @@ const taskList = document.querySelector(".task-list");
 const popup = document.querySelector(".popup");
 
 //// Functions
-
-// buttons for html
-//  <button class="btn btn--finish-task" data-index="${index}"><i class="fa-sharp fa-solid fa-check"></i></button>
-//<button class="btn btn--delete-task" data-index="${index}"><i class="fa-solid fa-xmark"></i></button>
 
 let tasks = [];
 let checks;
