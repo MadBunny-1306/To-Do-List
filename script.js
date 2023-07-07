@@ -60,7 +60,13 @@ const addTask = function () {
   const task = input.value.trim();
   if (task) {
     const date = new Date();
-    const dateString = `${date.toLocaleDateString()} ${date.toLocaleTimeString()}`;
+    const day = date.getDate();
+    const month = date.getMonth();
+    const year = date.getFullYear();
+    const hour = date.getHours();
+    const min = date.getMinutes();
+
+    const dateString = `${day}.${month}.${year}. ${hour}:${min}`;
     const newTask = { task, date: dateString };
     tasks.push(newTask);
 
