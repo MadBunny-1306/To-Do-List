@@ -20,6 +20,8 @@ const input = document.querySelector(".input");
 const btnAddTask = document.querySelector(".btn--add-task");
 const taskList = document.querySelector(".task-list");
 const popup = document.querySelector(".popup");
+const task = document.querySelectorAll(".task-name");
+const checkBox = document.querySelectorAll(".task-done");
 
 //// Functions
 
@@ -28,9 +30,9 @@ let checks;
 const renderTasks = function (task, index) {
   taskList.innerHTML = "";
   tasks.forEach((task, index) => {
-    const html = `<div class="task"><div class="task-line">
+    const html = `<div class="task"><div class="task-line"><input type="checkbox" class="task-done" onclick="checkFunction()">
     <p class="task-name" contenteditable="true" spellcheck="false">${task.task}</p>
-    <input type="checkbox" class="task-done"></div>
+    </div>
     <span class="date-span">${task.date}</span>
   </div>`;
     //   const btnsDelete = document.querySelectorAll(".btn--delete-task");
@@ -84,3 +86,15 @@ input.addEventListener("keydown", function (e) {
     addTask();
   }
 });
+
+// checkBox.forEach((check) => {
+//   check.addEventListener("click", function () {
+//     task.style.backgroundColor = "red";
+//   });
+// });
+
+function checkFunction() {
+  task.style.backgroundColor = "red";
+}
+
+if (checkBox == true) checkFunction();
