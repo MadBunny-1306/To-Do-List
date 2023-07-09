@@ -26,36 +26,53 @@ const checkBox = document.querySelectorAll(".task-done");
 //// Functions
 
 let tasks = [];
-let checks;
-const renderTasks = function (task, index) {
+const renderTasks = function () {
   taskList.innerHTML = "";
   tasks.forEach((task, index) => {
-    const html = `<div class="task"><div class="task-line"><input type="checkbox" class="task-done" onclick="checkFunction()">
-    <p class="task-name" contenteditable="true" spellcheck="false">${task.task}</p>
-    </div>
-    <span class="date-span">${task.date}</span>
-  </div>`;
-    //   const btnsDelete = document.querySelectorAll(".btn--delete-task");
-    //   btnsDelete.forEach(function (btn) {
-    //     btn.removeEventListener("click", deleteTask);
-    //     btn.addEventListener("click", deleteTask);
-    //   });
+    const taskDiv = document.createElement("div");
+    taskDiv.className = "task";
+    const taskLineDiv = document.createElement("div");
+    taskLineDiv.className = "task-line";
 
-    taskList.insertAdjacentHTML("afterbegin", html);
-    // const taskName = document.querySelector(".task-name");
+    const checkbox = document.createElement("input");
+    checkbox.type = "checkbox";
+    checkbox.className = "task-done";
+    checkbox.id = index;
+    checkbox.addEventListener("change", function () {
+      const taskName = this.nextSibling;
+      taskName.classList.toggle("finished");
+    });
+
+    const taskName = document.createElement("p");
+    taskName.className = "task-name";
+    taskName.contentEditable = true;
+    taskName.spellcheck = false;
+    taskName.textContent = task.task;
+
+    const deleteBtn = document.createElement("span");
+
+    deleteBtn.className = "btn--delete-task";
+
+    const dateSpan = document.createElement("span");
+    dateSpan.className = "date-span";
+    dateSpan.textContent = task.date;
+
+    taskLineDiv.appendChild(checkbox);
+    taskLineDiv.appendChild(taskName);
+    taskLineDiv.appendChild(deleteBtn);
+    taskDiv.appendChild(taskLineDiv);
+    taskDiv.appendChild(dateSpan);
+
+    taskList.appendChild(taskDiv);
+
+    taskName.addEventListener("keydown", function (e) {
+      if (e.key === "Enter") {
+        e.preventDefault();
+        taskName.blur();
+        tasks[index].task = taskName.textContent.trim();
+      }
+    });
   });
-
-  // checks = document.querySelectorAll(".btn--finish-task");
-  // checks.forEach((b) => {
-  //   b.addEventListener("click", function (e) {
-  //     console.log("Print");
-  //     // finishTask();
-  //     const taskName = e.target.closest(".task-name");
-  //     console.log(taskName);
-  //     // taskName.style.color = red;
-  //   });
-  // });
-  // console.log(checks);
 };
 
 const addTask = function () {
@@ -87,14 +104,4 @@ input.addEventListener("keydown", function (e) {
   }
 });
 
-// checkBox.forEach((check) => {
-//   check.addEventListener("click", function () {
-//     task.style.backgroundColor = "red";
-//   });
-// });
-
-function checkFunction() {
-  task.style.backgroundColor = "red";
-}
-
-if (checkBox == true) checkFunction();
+renderTasks();
