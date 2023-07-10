@@ -96,12 +96,36 @@ body {
 }
 
 .task-done {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  border: 2px solid #a197929d;
+  border-radius: 3px;
+  outline: none;
   color: #272727;
   width: 20px;
   height: 20px;
   align-self: center;
+  /* transition: border-color 0.3s; */
 }
 
+.task-done:checked {
+  border-color: #65554d;
+  background-color: #65554d50;
+}
+
+.task-done::before {
+  content: "\2713";
+  display: block;
+  text-align: center;
+  visibility: hidden;
+  color: #65554d;
+  line-height: 16px;
+}
+
+.task-done:checked::before {
+  visibility: visible;
+}
 .date-span {
   font-size: 1.3rem;
   color: #27272794;
@@ -120,10 +144,12 @@ body {
 .btn--delete-task {
   font-size: 2rem;
   border: none;
-  height: 2.5rem;
-  width: 2.5rem;
+  height: 2rem;
+  width: 2rem;
   cursor: pointer;
-  background-color: red;
+  /* background-color: red; */
+  color: #65554d;
+  align-self: center;
 }
 
 .btn:hover {
@@ -131,10 +157,10 @@ body {
   transition: 0.2s;
 }
 
-.btn--finish-task {
+/* .btn--finish-task {
   color: rgb(70, 169, 226);
   margin-right: 1%;
-}
+} */
 
 .hidden {
   display: hidden;

@@ -28,6 +28,7 @@ const checkBox = document.querySelectorAll(".task-done");
 let tasks = [];
 const renderTasks = function () {
   taskList.innerHTML = "";
+
   tasks.forEach((task, index) => {
     const taskDiv = document.createElement("div");
     taskDiv.className = "task";
@@ -37,10 +38,17 @@ const renderTasks = function () {
     const checkbox = document.createElement("input");
     checkbox.type = "checkbox";
     checkbox.className = "task-done";
-    checkbox.id = index;
+    checkbox.id = `task-${index}`;
+    checkbox.checked = task.checked;
+
     checkbox.addEventListener("change", function () {
       const taskName = this.nextSibling;
-      taskName.classList.toggle("finished");
+      tasks[index].checked = this.checked;
+      if (this.checked) {
+        taskName.classList.add("finished");
+      } else {
+        taskName.classList.remove("finished");
+      }
     });
 
     const taskName = document.createElement("p");
@@ -49,9 +57,20 @@ const renderTasks = function () {
     taskName.spellcheck = false;
     taskName.textContent = task.task;
 
-    const deleteBtn = document.createElement("span");
+    if (task.checked) {
+      taskName.classList.add("finished");
+    } else {
+      taskName.classList.remove("finished");
+    }
 
+    const deleteBtn = document.createElement("span");
     deleteBtn.className = "btn--delete-task";
+
+    deleteBtn.innerHTML = '<i class="fa-regular fa-trash-can"></i>';
+    deleteBtn.addEventListener("click", function () {
+      tasks.splice(index, 1);
+      renderTasks();
+    });
 
     const dateSpan = document.createElement("span");
     dateSpan.className = "date-span";
