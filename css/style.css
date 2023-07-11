@@ -99,6 +99,7 @@ body {
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
+  cursor: pointer;
   border: 2px solid #a197929d;
   border-radius: 3px;
   outline: none;
@@ -106,7 +107,7 @@ body {
   width: 20px;
   height: 20px;
   align-self: center;
-  /* transition: border-color 0.3s; */
+  transition: border-color 0.3s;
 }
 
 .task-done:checked {
@@ -126,6 +127,7 @@ body {
 .task-done:checked::before {
   visibility: visible;
 }
+
 .date-span {
   font-size: 1.3rem;
   color: #27272794;
@@ -142,14 +144,13 @@ body {
 }
 
 .btn--delete-task {
-  font-size: 2rem;
+  font-size: 1.3rem;
+  padding: 1rem;
   border: none;
-  height: 2rem;
-  width: 2rem;
   cursor: pointer;
-  /* background-color: red; */
   color: #65554d;
   align-self: center;
+  background-color: #f8f8f6;
 }
 
 .btn:hover {
@@ -157,17 +158,12 @@ body {
   transition: 0.2s;
 }
 
-/* .btn--finish-task {
-  color: rgb(70, 169, 226);
-  margin-right: 1%;
-} */
-
 .hidden {
   display: hidden;
   opacity: 0;
 }
 
-.popup {
+/* .popup {
   position: fixed;
   top: 50%;
   left: 50%;
@@ -196,4 +192,4 @@ body {
   color: #65554d;
   width: 3rem;
   font-size: 1.2rem;
-}
+} */
