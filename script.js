@@ -1,16 +1,10 @@
 "use strict";
 /**
- * change date format
- * style checkbox, maybe put it infront task-name
+ 
  * dragable task?
  * color theme?
- *
+ * sort?
  * 
-
-// buttons for html
-//  <button class="btn btn--finish-task" data-index="${index}"><i class="fa-sharp fa-solid fa-check"></i></button>
-//<button class="btn btn--delete-task" data-index="${index}"><i class="fa-solid fa-xmark"></i></button>
-
 
 
  */
@@ -32,6 +26,7 @@ const renderTasks = function () {
   tasks.forEach((task, index) => {
     const taskDiv = document.createElement("div");
     taskDiv.className = "task";
+    // taskDiv.draggable = true;
     const taskLineDiv = document.createElement("div");
     taskLineDiv.className = "task-line";
 
