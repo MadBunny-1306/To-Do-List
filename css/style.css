@@ -39,7 +39,7 @@ body {
   background-color: #fcf9f8;
   color: #272727;
   outline: none;
-  box-shadow: 0 0 10px #27272734;
+  box-shadow: 0 0 10px #27272718;
   border-radius: 4px 0 0 4px;
 }
 
@@ -57,7 +57,7 @@ body {
 
 .btn--add-task:hover {
   cursor: pointer;
-  background-color: #a197929d;
+  background-color: #a19792da;
   transition: 0.2s ease-in-out;
 }
 
