@@ -19,7 +19,7 @@ body {
 
 .title {
   padding: 0.5rem;
-  color: #272727;
+  color: #272727b9;
 }
 
 .input-line {
@@ -92,7 +92,7 @@ body {
   padding: 0.7rem 1.2rem;
   color: #65554d;
   background-color: #f8f8f6;
-  outline: none;
+  border-radius: 4px 0 0 4px;
 }
 
 .task-done {
@@ -107,7 +107,7 @@ body {
   width: 20px;
   height: 20px;
   align-self: center;
-  transition: border-color 0.3s;
+  transition: border-color 0.2s;
 }
 
 .task-done:checked {
@@ -151,45 +151,10 @@ body {
   color: #65554d;
   align-self: center;
   background-color: #f8f8f6;
+  border-radius: 0 4px 4px 0;
 }
 
-.btn:hover {
-  box-shadow: 0px 0px 15px 5px rgba(77, 77, 77, 0.144);
+.btn--delete-task:hover {
+  box-shadow: 0px 0px 5px 5px rgba(216, 216, 216, 0.137);
   transition: 0.2s;
 }
-
-.hidden {
-  display: hidden;
-  opacity: 0;
-}
-
-/* .popup {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  max-width: 60rem;
-  background-color: #f3f3f3;
-  padding: 3rem 4rem;
-  box-shadow: 0 4rem 6rem rgba(0, 0, 0, 0.3);
-  z-index: 1000;
-  transition: all 0.2s;
-  font-size: 2rem;
-  color: #65554d;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.btns-popup {
-  display: flex;
-  width: 40%;
-  justify-content: space-between;
-  margin-top: 1rem;
-}
-
-.btns-popup button {
-  color: #65554d;
-  width: 3rem;
-  font-size: 1.2rem;
-} */
