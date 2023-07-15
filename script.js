@@ -90,8 +90,8 @@ const renderTasks = function () {
 };
 
 const addTask = function () {
-  const task = input.value.trim();
-  if (task) {
+  const taskText = input.value.trim();
+  if (taskText) {
     const date = new Date();
     const day = date.getDate();
     const month = date.getMonth();
@@ -100,12 +100,23 @@ const addTask = function () {
     const min = date.getMinutes();
 
     const dateString = `${day}.${month}.${year}. ${hour}:${min}`;
-    const newTask = { task, date: dateString };
+    const newTask = { task: taskText, date: dateString, checked: false };
     tasks.push(newTask);
+
+    saveToLocalStorage();
 
     renderTasks();
     input.value = "";
   }
+};
+
+const saveToLocalStorage = function () {
+  localStorage.setItem("tasks", JSON.stringify(tasks));
+};
+
+const loadFromLocalStorage = function () {
+  const storedTasks = localStorage.getItem("tasks");
+  tasks = storedTasks ? JSON.parse(storedTasks) : [];
 };
 
 // Events
@@ -118,4 +129,5 @@ input.addEventListener("keydown", function (e) {
   }
 });
 
+loadFromLocalStorage();
 renderTasks();
