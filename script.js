@@ -44,6 +44,7 @@ const renderTasks = function () {
       } else {
         taskName.classList.remove("finished");
       }
+      saveToLocalStorage();
     });
 
     const taskName = document.createElement("p");
@@ -64,6 +65,9 @@ const renderTasks = function () {
     deleteBtn.innerHTML = '<i class="fa-regular fa-trash-can"></i>';
     deleteBtn.addEventListener("click", function () {
       tasks.splice(index, 1);
+      // task[index].deleted = true;
+
+      saveToLocalStorage();
       renderTasks();
     });
 
@@ -117,6 +121,8 @@ const saveToLocalStorage = function () {
 const loadFromLocalStorage = function () {
   const storedTasks = localStorage.getItem("tasks");
   tasks = storedTasks ? JSON.parse(storedTasks) : [];
+
+  // tasks = tasks.filter((task) => !task.deleted);
 };
 
 // Events
