@@ -1,12 +1,8 @@
 "use strict";
 /**
- 
- * dragable task?
  * color theme?
  * sort?
- * 
-
-
+ 
  */
 
 ///// Elements
@@ -16,6 +12,7 @@ const taskList = document.querySelector(".task-list");
 const popup = document.querySelector(".popup");
 const task = document.querySelectorAll(".task-name");
 const checkBox = document.querySelectorAll(".task-done");
+const sortBtn = document.getElementById("sort");
 
 //// Functions
 
@@ -26,7 +23,6 @@ const renderTasks = function () {
   tasks.forEach((task, index) => {
     const taskDiv = document.createElement("div");
     taskDiv.className = "task";
-    // taskDiv.draggable = true;
     const taskLineDiv = document.createElement("div");
     taskLineDiv.className = "task-line";
 
@@ -121,8 +117,11 @@ const saveToLocalStorage = function () {
 const loadFromLocalStorage = function () {
   const storedTasks = localStorage.getItem("tasks");
   tasks = storedTasks ? JSON.parse(storedTasks) : [];
+};
 
-  // tasks = tasks.filter((task) => !task.deleted);
+const sortAlphabet = function () {
+  tasks.sort((a, b) => a.task.localeCompare(b.task));
+  renderTasks();
 };
 
 // Events
@@ -134,6 +133,8 @@ input.addEventListener("keydown", function (e) {
     addTask();
   }
 });
+
+sortBtn.addEventListener("click", sortAlphabet);
 
 loadFromLocalStorage();
 renderTasks();

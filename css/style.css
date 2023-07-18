@@ -61,6 +61,10 @@ body {
   transition: 0.2s ease-in-out;
 }
 
+#sort {
+  width: 3rem;
+}
+
 .task-list {
   width: 100%;
   height: 75%;
