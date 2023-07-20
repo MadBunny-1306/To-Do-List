@@ -61,7 +61,8 @@ body {
   transition: 0.2s ease-in-out;
 }
 
-#sort {
+#sort-letters,
+#sort-date {
   width: 3rem;
 }
 

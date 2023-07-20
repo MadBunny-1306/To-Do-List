@@ -12,7 +12,8 @@ const taskList = document.querySelector(".task-list");
 const popup = document.querySelector(".popup");
 const task = document.querySelectorAll(".task-name");
 const checkBox = document.querySelectorAll(".task-done");
-const sortBtn = document.getElementById("sort");
+const sortAlphabetBtn = document.getElementById("sort-letters");
+const sortDateBtn = document.getElementById("sort-date");
 
 //// Functions
 
@@ -119,8 +120,13 @@ const loadFromLocalStorage = function () {
   tasks = storedTasks ? JSON.parse(storedTasks) : [];
 };
 
-const sortAlphabet = function () {
+const sortByAlphabet = function () {
   tasks.sort((a, b) => a.task.localeCompare(b.task));
+  renderTasks();
+};
+
+const sortByDate = function () {
+  tasks.sort((a, b) => new Date(a.date) - new Date(b.date));
   renderTasks();
 };
 
@@ -134,7 +140,8 @@ input.addEventListener("keydown", function (e) {
   }
 });
 
-sortBtn.addEventListener("click", sortAlphabet);
+sortAlphabetBtn.addEventListener("click", sortByAlphabet);
+sortDateBtn.addEventListener("click", sortByDate);
 
 loadFromLocalStorage();
 renderTasks();
