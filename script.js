@@ -1,7 +1,7 @@
 "use strict";
 /**
  * color theme?
- * sort?
+ * sort? -by alphabetical order and by date. then style buttons and make them into one, adn also those up-down arrows to show in which direction is sorting
  
  */
 
@@ -100,7 +100,14 @@ const addTask = function () {
     const hour = date.getHours();
     const min = date.getMinutes();
 
+    // const day = String(date.getDate()).padStart(2, "0");
+    // const month = String(date.getMonth() + 1).padStart(2, "0");
+    // const year = date.getFullYear();
+    // const hour = String(date.getHours()).padStart(2, "0");
+    // const min = String(date.getMinutes()).padStart(2, "0");
+
     const dateString = `${day}.${month}.${year}. ${hour}:${min}`;
+    // const dateString = `${year}-${month + 1}-${day} ${hour}:${min}`;
     const newTask = { task: taskText, date: dateString, checked: false };
     tasks.push(newTask);
 
@@ -122,12 +129,38 @@ const loadFromLocalStorage = function () {
 
 const sortByAlphabet = function () {
   tasks.sort((a, b) => a.task.localeCompare(b.task));
+
   renderTasks();
 };
 
 const sortByDate = function () {
-  tasks.sort((a, b) => new Date(a.date) - new Date(b.date));
+  const validTasks = tasks.filter((task) => checkIfValidDateFormat(task.date));
+  const invalidTasks = tasks.filter(
+    (task) => !checkIfValidDateFormat(task.date)
+  );
+  // tasks.sort((a, b) => new Date(a.date) - new Date(b.date));
+
+  validTasks.sort((a, b) => a.date - b.date);
+
+  // tasks = validTasks.concat(
+  //   tasks.filter((task) => !checkIfValidDateFormat(task.date))
+  // );
+
+  tasks = [...validTasks, ...invalidTasks];
+
+  // console.log(
+  //   "After sorting:",
+  //   tasks.map((task) => task.date)
+  // );
+
   renderTasks();
+};
+
+const checkIfValidDateFormat = function (dateString) {
+  // const dateRegex = /^\d{1,2}\.\d{1,2}\.\d{4}\. \d{1,2}:\d{2}$/;
+  const dateRegex =
+    /^(0?[1-9]|[1-2][0-9]|3[0-1])\.(0?[1-9]|1[0-2])\.\d{4}\. (0?[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$/;
+  return dateRegex.test(dateString);
 };
 
 // Events
@@ -145,3 +178,4 @@ sortDateBtn.addEventListener("click", sortByDate);
 
 loadFromLocalStorage();
 renderTasks();
+// console.log(checkIfValidDateFormat("20.6.2023. 22:46"));

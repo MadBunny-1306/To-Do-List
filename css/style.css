@@ -61,6 +61,12 @@ body {
   transition: 0.2s ease-in-out;
 }
 
+.sort-line {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
 #sort-letters,
 #sort-date {
   width: 3rem;
