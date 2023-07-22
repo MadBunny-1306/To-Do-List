@@ -134,24 +134,28 @@ const sortByAlphabet = function () {
 };
 
 const sortByDate = function () {
-  const validTasks = tasks.filter((task) => checkIfValidDateFormat(task.date));
-  const invalidTasks = tasks.filter(
-    (task) => !checkIfValidDateFormat(task.date)
-  );
+  // const validTasks = tasks.filter((task) => checkIfValidDateFormat(task.date));
+  // const invalidTasks = tasks.filter(
+  //   (task) => !checkIfValidDateFormat(task.date)
+  // );
   // tasks.sort((a, b) => new Date(a.date) - new Date(b.date));
 
-  validTasks.sort((a, b) => a.date - b.date);
+  // validTasks.sort((a, b) => a.date - b.date);
+
+  tasks.sort((a, b) => a.date - b.date);
+
+  // validTasks.sort((a, b) => Date.parse(a) - Date.parse(b));
 
   // tasks = validTasks.concat(
   //   tasks.filter((task) => !checkIfValidDateFormat(task.date))
   // );
 
-  tasks = [...validTasks, ...invalidTasks];
+  // tasks = [...validTasks, ...invalidTasks];
 
-  // console.log(
-  //   "After sorting:",
-  //   tasks.map((task) => task.date)
-  // );
+  console.log(
+    "After sorting:",
+    tasks.map((task) => task.date)
+  );
 
   renderTasks();
 };
