@@ -63,23 +63,30 @@ body {
 
 .sort-line {
   display: flex;
-  justify-content: flex-start;
+  justify-content: flex-end;
   align-items: center;
+  /* padding: 1rem; */
+  margin-top: 1rem;
 }
 
 #sort-letters {
-  width: 3rem;
+  font-size: 1.2rem;
+  padding: 0.4rem;
   background: transparent;
-  outline: none;
   border: none;
-  color: #65554d;
+  color: #65554d94;
   cursor: pointer;
+  transition: 0.3s;
+}
+
+#sort-letters:hover {
+  background-color: #65554d21;
+  letter-spacing: 1mm;
+  border-radius: 15%;
 }
 
 .task-list {
-  width: 100%;
   height: 75%;
-  margin-top: 1rem;
   padding: 1rem;
   display: flex;
   flex-direction: column;
@@ -163,13 +170,13 @@ body {
   padding: 1rem;
   border: none;
   cursor: pointer;
-  color: #65554d;
+  color: #65554d88;
   align-self: center;
   background-color: #f8f8f6;
   border-radius: 0 4px 4px 0;
+  transition: 0.2s;
 }
 
 .btn--delete-task:hover {
-  box-shadow: 0px 0px 5px 5px rgba(216, 216, 216, 0.137);
-  transition: 0.2s;
+  box-shadow: 0px 0px 5px 5px rgba(216, 216, 216, 0.295);
 }
