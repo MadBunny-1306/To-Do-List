@@ -63,19 +63,23 @@ body {
 
 .sort-line {
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
   align-items: center;
 }
 
-#sort-letters,
-#sort-date {
+#sort-letters {
   width: 3rem;
+  background: transparent;
+  outline: none;
+  border: none;
+  color: #65554d;
+  cursor: pointer;
 }
 
 .task-list {
   width: 100%;
   height: 75%;
-  margin-top: 3rem;
+  margin-top: 1rem;
   padding: 1rem;
   display: flex;
   flex-direction: column;

@@ -178,7 +178,7 @@ input.addEventListener("keydown", function (e) {
 });
 
 sortAlphabetBtn.addEventListener("click", sortByAlphabet);
-sortDateBtn.addEventListener("click", sortByDate);
+// sortDateBtn.addEventListener("click", sortByDate);
 
 loadFromLocalStorage();
 renderTasks();
