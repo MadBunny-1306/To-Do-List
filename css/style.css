@@ -80,8 +80,8 @@ body {
 }
 
 #sort-letters:hover {
-  background-color: #65554d21;
-  letter-spacing: 1mm;
+  background-color: #65554d0c;
+  letter-spacing: 1px;
   border-radius: 15%;
 }
 

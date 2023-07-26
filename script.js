@@ -62,7 +62,6 @@ const renderTasks = function () {
     deleteBtn.innerHTML = '<i class="fa-regular fa-trash-can"></i>';
     deleteBtn.addEventListener("click", function () {
       tasks.splice(index, 1);
-      // task[index].deleted = true;
 
       saveToLocalStorage();
       renderTasks();
@@ -78,7 +77,8 @@ const renderTasks = function () {
     taskDiv.appendChild(taskLineDiv);
     taskDiv.appendChild(dateSpan);
 
-    taskList.appendChild(taskDiv);
+    // taskList.appendChild(taskDiv);
+    taskList.prepend(taskDiv);
 
     taskName.addEventListener("keydown", function (e) {
       if (e.key === "Enter") {
@@ -128,44 +128,10 @@ const loadFromLocalStorage = function () {
 };
 
 const sortByAlphabet = function () {
-  tasks.sort((a, b) => a.task.localeCompare(b.task));
+  tasks.sort((a, b) => b.task.localeCompare(a.task));
 
   renderTasks();
 };
-
-// const sortByDate = function () {
-//   // const validTasks = tasks.filter((task) => checkIfValidDateFormat(task.date));
-//   // const invalidTasks = tasks.filter(
-//   //   (task) => !checkIfValidDateFormat(task.date)
-//   // );
-//   // tasks.sort((a, b) => new Date(a.date) - new Date(b.date));
-
-//   // validTasks.sort((a, b) => a.date - b.date);
-
-//   tasks.sort((a, b) => a.date - b.date);
-
-//   // validTasks.sort((a, b) => Date.parse(a) - Date.parse(b));
-
-//   // tasks = validTasks.concat(
-//   //   tasks.filter((task) => !checkIfValidDateFormat(task.date))
-//   // );
-
-//   // tasks = [...validTasks, ...invalidTasks];
-
-//   console.log(
-//     "After sorting:",
-//     tasks.map((task) => task.date)
-//   );
-
-//   renderTasks();
-// };
-
-// const checkIfValidDateFormat = function (dateString) {
-//   // const dateRegex = /^\d{1,2}\.\d{1,2}\.\d{4}\. \d{1,2}:\d{2}$/;
-//   const dateRegex =
-//     /^(0?[1-9]|[1-2][0-9]|3[0-1])\.(0?[1-9]|1[0-2])\.\d{4}\. (0?[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$/;
-//   return dateRegex.test(dateString);
-// };
 
 // Events
 btnAddTask.addEventListener("click", addTask);
@@ -178,8 +144,6 @@ input.addEventListener("keydown", function (e) {
 });
 
 sortAlphabetBtn.addEventListener("click", sortByAlphabet);
-// sortDateBtn.addEventListener("click", sortByDate);
 
 loadFromLocalStorage();
 renderTasks();
-// console.log(checkIfValidDateFormat("20.6.2023. 22:46"));
