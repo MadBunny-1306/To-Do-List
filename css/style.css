@@ -65,7 +65,6 @@ body {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  /* padding: 1rem; */
   margin-top: 1rem;
 }
 
@@ -179,4 +178,37 @@ body {
 
 .btn--delete-task:hover {
   box-shadow: 0px 0px 5px 5px rgba(216, 216, 216, 0.295);
+}
+
+@media (max-width: 59em) {
+  .input-line {
+    width: 100%;
+  }
+}
+
+@media (max-width: 44em) {
+  .btn--add-task {
+    width: 4rem;
+  }
+
+  .input {
+    width: 70%;
+  }
+
+  .container {
+    margin: 0;
+  }
+}
+
+@media (max-width: 34em) {
+  .task-list {
+    flex-wrap: nowrap;
+  }
+  .task {
+    width: 100%;
+  }
+
+  .task-name {
+    font-size: 2rem;
+  }
 }
