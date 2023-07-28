@@ -1,9 +1,4 @@
 "use strict";
-/**
- * color theme?
- * sort? -by alphabetical order and by date. then style buttons and make them into one, adn also those up-down arrows to show in which direction is sorting
- 
- */
 
 ///// Elements
 const input = document.querySelector(".input");
@@ -15,8 +10,7 @@ const checkBox = document.querySelectorAll(".task-done");
 const sortAlphabetBtn = document.getElementById("sort-letters");
 const sortDateBtn = document.getElementById("sort-date");
 
-//// Functions
-
+///// Functions
 let tasks = [];
 const renderTasks = function () {
   taskList.innerHTML = "";
@@ -27,6 +21,7 @@ const renderTasks = function () {
     const taskLineDiv = document.createElement("div");
     taskLineDiv.className = "task-line";
 
+    /// checkbox
     const checkbox = document.createElement("input");
     checkbox.type = "checkbox";
     checkbox.className = "task-done";
@@ -44,6 +39,7 @@ const renderTasks = function () {
       saveToLocalStorage();
     });
 
+    /// task text
     const taskName = document.createElement("p");
     taskName.className = "task-name";
     taskName.contentEditable = true;
@@ -56,6 +52,7 @@ const renderTasks = function () {
       taskName.classList.remove("finished");
     }
 
+    /// delete task
     const deleteBtn = document.createElement("span");
     deleteBtn.className = "btn--delete-task";
 
@@ -67,19 +64,21 @@ const renderTasks = function () {
       renderTasks();
     });
 
+    /// time and date
     const dateSpan = document.createElement("span");
     dateSpan.className = "date-span";
     dateSpan.textContent = task.date;
 
+    /// create task elements
     taskLineDiv.appendChild(checkbox);
     taskLineDiv.appendChild(taskName);
     taskLineDiv.appendChild(deleteBtn);
     taskDiv.appendChild(taskLineDiv);
     taskDiv.appendChild(dateSpan);
 
-    // taskList.appendChild(taskDiv);
     taskList.prepend(taskDiv);
 
+    /// enter to add task
     taskName.addEventListener("keydown", function (e) {
       if (e.key === "Enter") {
         e.preventDefault();
@@ -100,14 +99,7 @@ const addTask = function () {
     const hour = date.getHours();
     const min = date.getMinutes();
 
-    // const day = String(date.getDate()).padStart(2, "0");
-    // const month = String(date.getMonth() + 1).padStart(2, "0");
-    // const year = date.getFullYear();
-    // const hour = String(date.getHours()).padStart(2, "0");
-    // const min = String(date.getMinutes()).padStart(2, "0");
-
     const dateString = `${day}.${month}.${year}. ${hour}:${min}`;
-    // const dateString = `${year}-${month + 1}-${day} ${hour}:${min}`;
     const newTask = { task: taskText, date: dateString, checked: false };
     tasks.push(newTask);
 
@@ -117,7 +109,7 @@ const addTask = function () {
     input.value = "";
   }
 };
-
+/// using local storage
 const saveToLocalStorage = function () {
   localStorage.setItem("tasks", JSON.stringify(tasks));
 };
@@ -127,13 +119,14 @@ const loadFromLocalStorage = function () {
   tasks = storedTasks ? JSON.parse(storedTasks) : [];
 };
 
+/// sort alphabeticaly
 const sortByAlphabet = function () {
   tasks.sort((a, b) => b.task.localeCompare(a.task));
 
   renderTasks();
 };
 
-// Events
+/////// Events
 btnAddTask.addEventListener("click", addTask);
 
 input.addEventListener("keydown", function (e) {
