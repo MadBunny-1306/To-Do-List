@@ -1,11 +1,13 @@
 body {
-  height: 100vh;
   font-family: "Caveat", cursive;
   background-color: #f4f0e59c;
 }
 
-.container {
+.flex {
   display: flex;
+}
+
+.container {
   flex-direction: column;
   margin: 0 6rem;
   height: 100vh;
@@ -24,34 +26,31 @@ body {
 
 .input-line {
   width: 75%;
-  display: flex;
   justify-content: flex-start;
 }
 
 .input {
   width: 55%;
   height: 3rem;
-  padding: 0.3rem;
-  padding-left: 1rem;
-  font-size: 2rem;
-  font-family: "Caveat", cursive;
+  padding: 0.3rem 0.3rem 0.3rem 1rem;
+  font: 2rem "Caveat", cursive;
   border: none;
+  border-radius: 4px 0 0 4px;
   background-color: #fcf9f8;
   color: #272727;
   outline: none;
   box-shadow: 0 0 10px #27272718;
-  border-radius: 4px 0 0 4px;
 }
 
 .btn--add-task {
   width: 8%;
   border: none;
+  border-radius: 0 4px 4px 0;
   background-color: #a19792;
   color: rgba(0, 0, 0, 0.534);
   font-weight: bold;
   font-size: 1.1rem;
   letter-spacing: 1.8px;
-  border-radius: 0 4px 4px 0;
   box-shadow: 0 0 10px #27272734;
 }
 
@@ -62,7 +61,6 @@ body {
 }
 
 .sort-line {
-  display: flex;
   justify-content: flex-end;
   align-items: center;
   margin-top: 1rem;
@@ -87,24 +85,21 @@ body {
 .task-list {
   height: 75%;
   padding: 1rem;
-  display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   background-color: #f4f0e59c;
   box-shadow: 0px 0px 15px 5px rgba(163, 163, 163, 0.144);
 }
 
-.task {
-  width: 45%;
-  margin-top: 0.6rem;
-  margin-bottom: 0.6rem;
-  margin-right: 1.2rem;
-  display: flex;
-  flex-direction: column;
-}
-
+.task,
 .task-line {
   display: flex;
+}
+
+.task {
+  width: 45%;
+  margin: 0.6rem 1.2rem 0.6rem 0;
+  flex-direction: column;
 }
 
 .task-name {
@@ -154,8 +149,7 @@ body {
   color: #27272794;
   margin-left: 3rem;
   margin-top: 0.5rem;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 0.8rem;
+  font: 0.8rem Arial, Helvetica, sans-serif;
 }
 
 .finished {
