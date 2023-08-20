@@ -109,7 +109,7 @@ const addTask = function () {
     input.value = "";
   }
 };
-/// using local storage
+/// using local storage. saving data in cache
 const saveToLocalStorage = function () {
   localStorage.setItem("tasks", JSON.stringify(tasks));
 };
